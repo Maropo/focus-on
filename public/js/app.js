@@ -26,14 +26,35 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Theme Toggler Logic
     const themeToggleButton = document.getElementById('theme-toggle');
+    const dogeThemeToggleButton = document.getElementById('doge-theme-toggle');
     if (themeToggleButton) {
         const currentTheme = localStorage.getItem('focusOnTheme') || 'light';
         document.body.classList.toggle('dark-mode', currentTheme === 'dark');
+        document.body.classList.toggle('doge-mode', currentTheme === 'doge');
 
         themeToggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-            localStorage.setItem('focusOnTheme', theme);
+            // Alterna entre claro e escuro, desativa doge
+            if (document.body.classList.contains('doge-mode')) {
+                document.body.classList.remove('doge-mode');
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('focusOnTheme', 'dark');
+            } else {
+                document.body.classList.toggle('dark-mode');
+                const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+                localStorage.setItem('focusOnTheme', theme);
+            }
+        });
+    }
+    if (dogeThemeToggleButton) {
+        dogeThemeToggleButton.addEventListener('click', () => {
+            // Ativa/desativa o tema doge
+            const isDoge = document.body.classList.toggle('doge-mode');
+            document.body.classList.remove('dark-mode');
+            if (isDoge) {
+                localStorage.setItem('focusOnTheme', 'doge');
+            } else {
+                localStorage.setItem('focusOnTheme', 'light');
+            }
         });
     }
     

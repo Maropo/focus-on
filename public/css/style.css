@@ -37,6 +37,25 @@
     --card-shadow-dark: 0 4px 12px rgba(255, 182, 213, 0.25);
     --hover-bg-dark: #4a274a;
     
+    /* Tema Doge (inspirado no meme) */
+    --primary-color-doge: #f9d85e; /* amarelo doge */
+    --primary-variant-color-doge: #e2b13c; /* dourado */
+    --secondary-color-doge: #b2c8e5; /* azul claro doge */
+    --background-color-doge: #fff8e1; /* bege claro */
+    --surface-color-doge: #f5e6b2; /* bege mais escuro */
+    --error-color-doge: #e57373; /* vermelho doge */
+    --success-color-doge: #aee571; /* verde doge */
+    --on-primary-color-doge: #3a2c09; /* texto escuro sobre amarelo */
+    --on-secondary-color-doge: #1a2637; /* texto escuro sobre azul */
+    --on-background-color-doge: #3a2c09;
+    --on-surface-color-doge: #3a2c09;
+    --text-color-doge: #3a2c09; /* marrom doge */
+    --text-secondary-doge: #b2a16b; /* bege escuro */
+    --border-color-doge: #e2b13c;
+    --input-bg-doge: #fffbe7;
+    --card-shadow-doge: 0 4px 12px rgba(249, 216, 94, 0.15);
+    --hover-bg-doge: #f9e7b2;
+
     /* Tamanhos */
     --border-radius: 12px;
     --card-spacing: 16px;
@@ -104,6 +123,48 @@ body.dark-mode {
 
     background-color: var(--background-color);
     color: var(--text-color);
+}
+
+/* Tema Doge */
+body.doge-mode {
+    --primary-color: var(--primary-color-doge);
+    --primary-variant-color: var(--primary-variant-color-doge);
+    --secondary-color: var(--secondary-color-doge);
+    --background-color: var(--background-color-doge);
+    --surface-color: var(--surface-color-doge);
+    --error-color: var(--error-color-doge);
+    --success-color: var(--success-color-doge);
+    --on-primary-color: var(--on-primary-color-doge);
+    --on-secondary-color: var(--on-secondary-color-doge);
+    --on-background-color: var(--on-background-color-doge);
+    --on-surface-color: var(--on-surface-color-doge);
+    --text-color: var(--text-color-doge);
+    --text-secondary: var(--text-secondary-doge);
+    --border-color: var(--border-color-doge);
+    --input-bg: var(--input-bg-doge);
+    --card-shadow: var(--card-shadow-doge);
+    --hover-bg: var(--hover-bg-doge);
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+    background-image: url('https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    /* Adiciona um overlay para melhor contraste do conteúdo */
+}
+body.doge-mode::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 248, 225, 0.75); /* overlay bege semi-transparente */
+    pointer-events: none;
+    z-index: 0;
+}
+body.doge-mode > * {
+    position: relative;
+    z-index: 1;
 }
 
 
@@ -254,7 +315,6 @@ input[type="text"]:focus {
 body.dark-mode input[type="text"]:focus {
     box-shadow: 0 0 0 2px var(--primary-color-dark);
 }
-
 
 button {
     background-color: var(--primary-color);
